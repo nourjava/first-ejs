@@ -5,48 +5,28 @@ var express = require("express");
 var bodyParser = require("body-parser");
 
 var app = express();
+var first = "";
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.get("/", function (req, res) {
   var today = new Date();
-  var currentDay = today.getDay();
-  var day = "";
-
-  switch (currentDay) {
-    case 0:
-      day = "Sunday";
-      break;
-
-    case 1:
-      day = "Monday";
-      break;
-
-    case 2:
-      day = "Tuesday";
-      break;
-
-    case 3:
-      day = "Wednesday";
-      break;
-
-    case 4:
-      day = "Thursday";
-      break;
-
-    case 5:
-      day = "Friday";
-      break;
-
-    case 6:
-      day = "Saturday";
-      break;
-
-    default:
-      console.log("Error: current dayy is edual  " + currentDay);
-  }
-
+  var options = {
+    weekday: 'long',
+    year: 'numeric',
+    day: 'numeric',
+    month: 'narrow'
+  };
+  var day = today.toLocaleDateString("en-US", options);
   res.render("list", {
-    kind0fday: day
+    kinday: day,
+    kin0day: first
   });
+});
+app.post("/", function (req, res) {
+  var first = req.body.fName;
+  res.redirect("/");
 });
 app.listen(3000, function () {
   console.log("Server started on port 3000,");
