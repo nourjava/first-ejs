@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>To Do list</title>
 </head>
 
@@ -16,14 +17,9 @@
         <input name="fName" type="text" placeholder="Entre">
         <button type="submit" class="btn">Click</button>
     </form>
-    <ul >
-        <li>Noureddine</li>
-        <li>Moussaid</li>
-        <li>Web Devloper</li>
-        <li>Welcom to my site web</li>
-        <li> <%= kin0day%></li>
-    </ul>
-
+   <% for (var i=0; i<kin0day.length; i++){ %>
+        <li><%=  kin0day[i] %></li>
+    <% } %>
 
 
 
